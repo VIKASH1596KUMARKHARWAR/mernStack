@@ -1,0 +1,10 @@
+//ECMAScript is just like taarak mehta who write the script and his boss is like the JS wo publish it ..make complier of js
+
+ecma scrtipt serves as a scriptinfg rule for the compilers so it should lies on those rule
+ES5/ES6/ES2015/ES2017
+
+//JS have some additional features like DOM manipulation which are not the part of ECMA script
+
+//Node.js is not a lang.. its a runtime (which can run with js )which  competes the Backend LaNG like java
+
+//bun --zig (a lang)

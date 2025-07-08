@@ -1,0 +1,70 @@
+Docker
+
+
+
+
+vikash-dev
+//docker -desktop
+systemctl --user restart docker-desktop
+container --an image in execution 
+
+
+ex. docker pull mongo
+//after this need port mapping(27017)
+docker run -d -p 27017:27017 mongo
+
+
+[[[sudo systemctl stop mongod]]] --stopping my own locally installed mongodb
+started docker's mongo again 
+
+docker ps //for checking the current running containers
+
+docker exec -it <container_id> mongosh				 //accesing mongo inside the container
+
+
+docker kill <container_id>
+
+
+
+
+			$$##postgrese
+			
+docker run -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres
+
+		connection-string::postgresql://postgres:mysecretpassword@localhost:5432/postgres
+		
+		
+		
+		
+		
+//extra commands 
+docker exec -it <container_name_or_id> /bin/bash
+		
+		
+		
+		
+######>>>>>> //if u kill the docker container then the dummy data inserted in mongo db deleted so ,that's why we need to insert the volume to the container 
+
+
+1.docker volume create volume_database
+2.docker run -v volume_database:/data/db -p 27017:27017 mongo
+
+
+
+######>>>>>>>//In Docker, a network is a powerful feature that allows containers to communicate with each other and with the outside world.
+Docker containers can’t talk to each other by default.
+localhost on a docker container means it's own network and not the network of the host machine
+
+How to make containers talk to each other???Attach them to the same network
+
+1.docker build -t image_tag .   >>>  #Build the image
+2.docker network create my_custom_network  >>>  #Create a network
+
+3.docker run -d -p 3000:3000 --name backend --network my_custom_network image_tag
+	>>> #Start the backend process with the network attached to it
+
+4.docker run -d -v volume_database:/data/db --name mongo --network my_custom_network -p 27017:27017 mongo
+	>>> #Start mongo on the same network
+5.docker logs <container_id>  
+	>>> #Check the logs to ensure the db connection is successful
+

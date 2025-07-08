@@ -1,0 +1,12 @@
+{
+  "name": "lect-2_2",
+  "version": "1.0.0",
+  "main": "2_2_httpServer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

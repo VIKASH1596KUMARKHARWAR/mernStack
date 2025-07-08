@@ -1,0 +1,29 @@
+//to create a cluster  -kind>> kubernetes inside docker
+kind create cluster --config clusters.yml --name local
+ 
+kind get clusters
+kind delete cluster --name local
+
+ 
+ 		creating my own first pod>>
+ 		
+ 		kubectl run nginx --image=nginx --port=80
+ 		
+ 		kubectl get pods
+ 		kubectl delete  pods nginx
+ 		
+ 		
+using the manifest:
+===========================
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
+===========================   >>>> kubectl apply -f manifest.yml 
+//run this in terminal

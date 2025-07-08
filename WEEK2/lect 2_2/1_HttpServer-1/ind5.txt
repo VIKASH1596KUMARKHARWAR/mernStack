@@ -1,0 +1,25 @@
+The conversion from JSON to a JavaScript object and vice versa involves two main processes: parsing and stringification. These processes are handled by built-in JavaScript functions:
+
+Parsing: Parsing is the process of converting a JSON string into a JavaScript object. In JavaScript, you can use the JSON.parse() function to parse a JSON string and convert it into a JavaScript object.
+
+For example:
+
+javascript
+
+const jsonString = '{"msg":"what is 2+2=5"}';
+const jsonObject = JSON.parse(jsonString);
+console.log(jsonObject); // Output: { msg: 'what is 2+2=5' }
+
+Stringification: Stringification is the process of converting a JavaScript object into a JSON string. In JavaScript, you can use the JSON.stringify() function to convert a JavaScript object into a JSON string.
+
+For example:
+
+javascript
+
+const jsonObject = { msg: 'what is 2+2=5' };
+const jsonString = JSON.stringify(jsonObject);
+console.log(jsonString); // Output: '{"msg":"what is 2+2=5"}'
+
+Express middleware like express.json() handles the parsing part automatically for you. When you send JSON data in the request body from Postman, it arrives at your Express route handler as a JSON string. The express.json() middleware parses this JSON string into a JavaScript object, making it available as req.body.
+
+Similarly, when you want to send JSON data as a response from your Express server, you can use res.json() or res.send() with a JavaScript object. Express automatically stringifies the JavaScript object into a JSON string before sending it as a response to the client.

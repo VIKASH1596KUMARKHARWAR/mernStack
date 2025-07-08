@@ -1,0 +1,19 @@
+a component can only return a single top lever xml. why?? 
+
+ans. make it easier for reconciliation
+
+explaination:: In React, a component can only return a single top-level XML (or JSX) element because it simplifies the rendering process and makes reconciliation (React's diffing algorithm) more efficient.
+
+React requires a single top-level element to:
+
+	1. Easily Compare Trees: React compares old and new versions of the UI efficiently when there’s a single root.
+	2. Reduce Complexity: Managing one root element keeps the rendering process clean and avoids ambiguity.
+If you need multiple elements, wrap them in a parent element like a <div> or React Fragment (<>...</>). This keeps the structure simple for React.
+
+
+
+
+
+
+
+

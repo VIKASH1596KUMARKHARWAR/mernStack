@@ -1,0 +1,35 @@
+Indexing 
+An index is a data structure that allows the database to find and access specific rows in a table quickly, without scanning the entire table.
+
+Think of it like the index at the end of a book, which helps you locate specific topics quickly instead of reading through every page.
+
+When you create an index on a field, a new data structure (usually B-tree) is created that stores the mapping from the index column to the location of the record in the original table. 
+Search on the index is usually log(n) 
+
+
+docker run  -p 5434:5434 -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+docker exec -it container_id /bin/bash
+psql -U postgres
+
+
+| **Index Type**          | **Description**                                                                                  |
+|-------------------------|--------------------------------------------------------------------------------------------------|
+| **Primary Index**       | Automatically created for the **Primary Key**. Ensures unique, sorted entries.                   |
+| **Unique Index**        | Ensures all values in a column are unique (no duplicates).                                       |
+| **Clustered Index**     | Sorts the rows of a table based on the index. Each table can have only one clustered index.       |
+| **Non-Clustered Index** | A separate structure that points to the rows in a table. Multiple non-clustered indexes can exist.|
+| **Composite Index**     | An index on **multiple columns** to optimize queries involving those columns.                    |
+| **Full-Text Index**     | Used for searching text-based data, useful for large text fields.                                |
+| **Hash Index**          | Uses a hash table for faster equality-based lookups (e.g., exact matches).                       |
+| **B-Tree Index**        | Default index type in most RDBMS. Balanced tree for ordered data and range-based queries.        |
+| **Bitmap Index**        | Efficient for columns with low cardinality (few unique values, e.g., gender, status flags).      |
+
+
+
+
+
+
+//commands
+
+ EXPLAIN ANALYSE SELECT * FROM posts WHERE user_id=1 LIMIT 5;
+ CREATE INDEX idx_user_id ON posts (user_id);

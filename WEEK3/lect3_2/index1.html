@@ -1,0 +1,30 @@
+//nested then
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  Hello world
+  <script>
+    function getAnimalData() {
+      // alert("hi therir")
+      fetch("https://fakerapi.it/api/v1/persons")
+        .then(function (response) {
+          response.json()
+            .then(function (finalData) {
+              console.log(finalData);
+            })
+        })
+    }
+  </script>
+  <button onclick="getAnimalData()">get Animal Data</button>
+</body>
+
+</html>

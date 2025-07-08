@@ -1,0 +1,6 @@
+name = "backend"
+compatibility_date = "2023-12-01"
+
+[vars]
+DATABASE_URL="postgresql://neondb_owner:UHtgvX9WQE8J@ep-red-boat-a5xnyp3g.us-east-2.aws.neon.tech/neondb?sslmode=require"
+JWT_SECRET = "asdasdasd"

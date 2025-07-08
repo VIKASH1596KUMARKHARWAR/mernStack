@@ -1,0 +1,11 @@
+apiVersion: metallb.io/v1beta1
+kind: Config
+metadata:
+  name: config
+  namespace: metallb-system
+address-pools:
+- name: default
+  protocol: layer2
+  addresses:
+  - 172.23.0.100-172.23.0.150  # Change to the appropriate range within your subnet
+

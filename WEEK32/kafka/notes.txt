@@ -1,0 +1,42 @@
+Apache Kafka is an open-source distributed event streaming platform used by thousands of companies for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications.
+
+Event streaming
+If you want to build a system where one process produces events that can be consumed by multiple consumers    
+
+jargons :
+
+	topics =>> like  the rooms in the redis pub sub   
+  
+
+[soem tools] :https://www.twilio.com/en-us
+
+
+//start locally
+1.docker run -p 9092:9092 apache/kafka:3.7.1
+
+
+2.docker exec -it 8018dbb0d6fe /bin/bash
+
+
+3.  cd /opt/kafka/bin
+
+
+4. topic creating 
+./kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092
+
+5. consuming it 
+./kafka-console-consumer.sh --topic quickstart-events --from-beginning --bootstrap-server localhost:9092
+
+
+6.producing
+./kafka-console-producer.sh --topic quickstart-events --bootstrap-server localhost:9092
+
+	// we get to notice that even though we are running the consumer too late  to enter to the system, it still gets all the messages that were produced before it started. This is because kafka is a distributed system and it has a concept of a log that is replicated across all the nodes in the cluster
+	// this log is what allows kafka to provide the at-least-once delivery guarantee. This means that even if a message is lost in transit, it will still be delivered to the consumer at least once. This is because the consumer will keep retrying to consume the message until it is successful.  
+
+
+	// if numberof partitions   <  no. of consumers  =====>> so some consumer  will be sitting silently
+
+
+//states can be checked by:
+./kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group my-app3

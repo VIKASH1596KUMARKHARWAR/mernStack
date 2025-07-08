@@ -1,0 +1,28 @@
+						```Hooks``` 
+
+1.useState
+2.useEffect
+3.useContext
+4.useReducer
+5.useRef
+6.useMemo
+7.useCallback
+8.useLayoutEffect
+
+
+useState: Manages state in a functional component.
+useEffect: Handles side effects like fetching data, DOM manipulation, or event subscriptions.
+useContext: Accesses values from a context without prop drilling.
+useReducer: Provides a more advanced way to manage state when the logic is complex.
+useRef: Creates a reference to a DOM element or stores a mutable value that doesn’t trigger re-renders.
+useMemo: Optimizes performance by memoizing values calculated from a function.
+useCallback: Memoizes callback functions to prevent unnecessary re-renders.
+	which help to optimise the performanance of ur application especially in case child component rely on the reference equality to prevent unnecessary renders
+useLayoutEffect is a React hook that allows you to run code right after the DOM has been updated but before the browser paints the screen. This is useful when you need to perform operations that affect the layout (like measuring an element's size or position) to avoid visual flickering or layout shifts.
+For example, if you need to adjust the position of an element or measure its size after React has rendered it, but before it shows up on the screen, useLayoutEffect ensures those changes happen immediately and smoothly.
+Think of it as a way to make sure the browser doesn't show any flashes or "jumping" while the page is updating.
+
+
+/*NOTE:: useEffect runs asynchronously after the DOM has been updated and painted on the screen. This means that updates triggered by the effect do not block the paint process and are typically used for tasks like data fetching, subscriptions, or timers.*/
+useLayoutEffect, on the other hand, runs synchronously after all DOM mutations but before the browser has painted. This ensures that the layout changes are applied before the screen is rendered, preventing any visual flickering or layout shifting.
+

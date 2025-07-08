@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Sum</title>
+</head>
+<body>
+    <p>Enter two numbers to get the sum:</p>
+    <input id="first" type="text" placeholder="First number"/><br/><br/>
+    <input id="second" type="text" placeholder="Second number"/><br/><br/>
+    <p id="result"></p>
+
+    <script>
+        // Debounce function to limit function calls
+        let timer;
+        function debounce(func, delay) {
+            return function() {
+                clearTimeout(timer);
+                timer = setTimeout(func, delay);
+            };
+        }
+
+        // Sum calculation function
+        async function sum() {
+            const a = document.getElementById("first").value;
+            const b = document.getElementById("second").value;
+            const result = document.getElementById("result");
+
+            if (isNaN(a) || isNaN(b)) {
+                result.innerText = "Please enter valid numbers.";
+                return;
+            }
+
+            const response = await fetch(`http://localhost:8080/sum?a=${a}&b=${b}`);
+            if (response.ok) {
+                const data = await response.text();
+                result.innerText = `Sum: ${data}`;
+            } else {
+                result.innerText = "Error calculating sum.";
+            }
+        }
+
+        // Apply debounce to sum function with 500ms delay
+        document.getElementById("first").addEventListener('input', debounce(sum, 500));
+        document.getElementById("second").addEventListener('input', debounce(sum, 500));
+    </script>
+</body>
+</html>

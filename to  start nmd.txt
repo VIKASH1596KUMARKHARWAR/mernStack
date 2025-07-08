@@ -1,0 +1,18 @@
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+
+
+v8(c++),spidermonkey(rust)
+js=> binary lang
+
+v8(c++),added few tinkg on top ==> node.js  ====> to use it as a backend
+clis
+http server
+videoplayer
+games.......
+
+competators is now comming for the node is bun
+
+2.http server
+expose ur algo to the world, it lets people request for and use ur logic
+1.express
+2.next.js-helps to write backend routes

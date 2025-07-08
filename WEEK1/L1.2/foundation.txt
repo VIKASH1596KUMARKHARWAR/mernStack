@@ -1,0 +1,12 @@
+whatever is currently running resides into the RAM
+and expect all of these  which currently not in use reside out of it --- in SSD. 
+In RAM --bit form 0/1
+compiler
+
+
+    Cpp being compied language while JS is an interpreted language.
+    [doesn't need HLL compilATION STEPs.]
+    IN JS, It will run line while line,Can run partially if the error comes later where as cpp will give the error either partially or fully.
+
+website repl.it ==> can use to write cpp/js code w/o installing of the node.
+

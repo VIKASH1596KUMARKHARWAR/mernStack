@@ -1,0 +1,4 @@
+//for working with the backend we  need to have  app/api where we will deail with the all backend stuffs
+
+//here api/page.tsx not but api/route.tsx hoga
+

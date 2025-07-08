@@ -1,0 +1,34 @@
+//creatign 3 partitions
+
+
+
+./kafka-topics.sh --create --topic payment-done --partitions 3 --bootstrap-server localhost:9092
+
+./kafka-topics.sh --describe --topic payment-done --bootstrap-server localhost:9092
+
+
+
+
+
+
+
+
+
+Update the topic in the node.js script to use payment-done
+async function main() {
+  await producer.connect();
+  await producer.send({
+    topic: "payment-done",
+    messages: [{
+      value: "hi there",
+      key: "user1"
+    }]
+  });
+}
+///
+await consumer.subscribe({
+  topic: "payment-done", fromBeginning: true
+})
+
+
+rep:: img-partitions3

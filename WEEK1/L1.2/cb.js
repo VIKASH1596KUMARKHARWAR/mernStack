@@ -1,0 +1,1 @@
+//wring simplee function

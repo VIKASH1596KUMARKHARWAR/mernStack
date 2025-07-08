@@ -1,0 +1,4 @@
+onInput is live reflecting the changes which we don't want it ex. seacrching on the amazone
+// we want to wait for the user to finish typing before we send the request
+// we can use the setTimeout function to achieve this
+// and this debouncing

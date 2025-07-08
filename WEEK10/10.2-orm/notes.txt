@@ -1,0 +1,16 @@
+npm init -y
+
+npm install prisma typescript ts-node @types/node --save-dev
+
+Change `rootDit` to `src`
+npx tsc --init
+Change `outDir` to `dist`
+
+npx prisma init
+
+
+
+after writing the schemas / after making even a single change in the schemas
+npx prisma migrate dev --name UserAndTodoAdded  // to create the query
+
+ npx prisma generate // to generate the prisma client

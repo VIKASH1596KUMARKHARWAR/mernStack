@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<script>
+    function addtodo() {
+        const title = document.getElementById("title").value;
+        const description = document.getElementById("description").value;
+
+        if (!title || !description) {
+            alert("Please enter both title and description.");
+            return;
+        }
+
+        // Create a new todo container
+        const todoDiv = document.createElement("div");
+        todoDiv.style.marginBottom = "10px";
+
+        // Add title
+        const titleDiv = document.createElement("div");
+        titleDiv.innerHTML = `<strong>${title}</strong>`;
+        todoDiv.appendChild(titleDiv);
+
+        // Add description
+        const descriptionDiv = document.createElement("div");
+        descriptionDiv.innerText = description;
+        todoDiv.appendChild(descriptionDiv);
+
+        // Add "Mark as done" button
+        const button = document.createElement("button");
+        button.innerText = "Mark as done";
+        button.onclick = function () {
+            todoDiv.style.textDecoration = "line-through"; // Mark as done
+            button.remove(); // Remove the button
+        };
+        todoDiv.appendChild(button);
+
+        // Append the new todo to the container
+        document.getElementById("container").appendChild(todoDiv);
+
+        // Clear input fields
+        document.getElementById("title").value = "";
+        document.getElementById("description").value = "";
+    }
+</script>
+
+<body>
+    <input type="text" id="title" placeholder="Enter title"/>
+    <br/>
+    <input type="text" id="description" placeholder="Enter description"/>
+    <br/>
+    <button onclick="addtodo()">Add Todo</button> 
+    <div id="container"></div>
+</body>
+</html>

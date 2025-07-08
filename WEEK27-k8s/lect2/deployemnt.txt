@@ -1,0 +1,68 @@
+//deployemnt 
+A Deployment in Kubernetes is a higher-level abstraction that manages a set of Pods and provides declarative updates to them. It offers features like 
+	scaling,
+	rolling updates, 
+	and rollback capabilities, making it easier to manage the lifecycle of applications.
+
+
+kubectl create deployment nginx-deployment --image=nginx --port=80 --replicas=3
+//this automatically creates 3 pods for me
+
+
+1.kind create cluster --name lect2
+2.kind get clusters
+3.kubectl config use-context kind-lect2 (switch to desired cluster >>lect2 of type kind)
+4.kubectl apply -f deployment-class.yml
+5.kubectl get pods
+6.check--
+	kubectl get pods
+	kubectl get replicaset
+	kubectl get deployments
+
+7. kubectl get nodes
+8. kubectl get deployment
+9.kubectl describe pod <pod_name>
+10.kubectl delete deployment nginx-deployment(deployment name)>>sutomatically delete the all workers, and replicas also
+11.kubectl delete pod <pod_name> (for sepecific pod to delete)
+
+12.kind delete cluster --name lect2
+
+
+
+//repicaSet 
+kubectl get rs
+
+A ReplicaSet in Kubernetes is a controller that ensures a specified number of pod replicas are running at any given time. It is used to maintain a stable set of replica Pods running in the cluster, even if some Pods fail or are deleted.
+
+
+
+	User creates a deployment which creates a replicaset which creates pods
+If pods go down, replicaset controller  ensures to bring them back up
+ 
+ 
+ 
+ //different in development and rs 
+ ----------------------------------------
+ 		Deployment ensures that there is a smooth deployment, and if the new image fails for some reason, the old replicaset is maintained.
+Even though the rs is what does pod management , deployment is what does rs management
+ 
+ 
+ rollback
+ 	1. kubectl rollout history deployment/nginx-deployment
+ 	2. kubectl rollout undo deployment/nginx-deployment
+ 	
+ 	
+ 	
+========================================================================================
+services >>	like using the things via docker by port mapping to listen our machine
+	its exposes the pod to your system
+	
+in Kubernetes, a "Service" is an abstraction that defines a logical set of Pods and a policy by which to access them. Kubernetes Services provide a way to expose applications running on a set of Pods as network services
+
+1.kubectl apply -f service-class.yml
+2.kubectl get services
+
+
+
+------------------------------------------------------------------
+a LoadBalancer service type is a way to expose a service to external clients. When you create a Service of type LoadBalancer, Kubernetes will automatically provision an external load balancer from your cloud provider (e.g., AWS, Google Cloud, Azure) to route traffic to your Kubernetes service
